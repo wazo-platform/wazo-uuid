@@ -8,6 +8,7 @@ Standards-Version: 3.9.6
 Package: wazo-uuid
 Architecture: all
 Depends: ${misc:Depends},
+         python,
          systemd
 Description: Wazo UUID management
  Wazo is a system based on a powerful IPBX, to bring an easy to
