@@ -1,0 +1,19 @@
+Source: wazo-uuid
+Section: comm
+Priority: extra
+Maintainer: Wazo Maintainers <dev.wazo@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.6
+
+Package: wazo-uuid
+Architecture: all
+Depends: ${python:Depends},
+         ${misc:Depends},
+         systemd
+Description: Wazo UUID management
+ Wazo is a system based on a powerful IPBX, to bring an easy to
+ install solution for telephony and related services.
+ .
+ This package handles the UUID of the Wazo installation that will be shared
+ across services.
+ .

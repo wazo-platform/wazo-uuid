@@ -1,0 +1,5 @@
+wazo-uuid (17.03~1) wazo-dev; urgency=medium
+
+  * Create package
+
+ -- Wazo Maintainers <dev.wazo@gmail.com>  Tue, 31 Jan 2017 10:49:05 -0500
