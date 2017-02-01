@@ -12,6 +12,7 @@ Depends: ${python:Depends},
          ${misc:Depends},
          python,
          systemd
+Conflicts: xivo-manage-db (<< 17.03~20170201)
 Description: Wazo UUID management
  Wazo is a system based on a powerful IPBX, to bring an easy to
  install solution for telephony and related services.
