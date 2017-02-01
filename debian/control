@@ -2,12 +2,14 @@ Source: wazo-uuid
 Section: comm
 Priority: extra
 Maintainer: Wazo Maintainers <dev.wazo@gmail.com>
-Build-Depends: debhelper (>= 9)
+Build-Depends: debhelper (>= 9), dh-python, python-all (>= 2.7), python-setuptools
 Standards-Version: 3.9.6
+X-Python-Version: >= 2.7
 
 Package: wazo-uuid
 Architecture: all
-Depends: ${misc:Depends},
+Depends: ${python:Depends},
+         ${misc:Depends},
          python,
          systemd
 Description: Wazo UUID management
