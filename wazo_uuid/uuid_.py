@@ -42,7 +42,7 @@ def _find_uuid_environ():
 def _find_uuid_systemctl():
     try:
         environment_string = subprocess.check_output(['systemctl', 'show-environment'])
-    except subprocess.CalledProcessError:
+    except (subprocess.CalledProcessError, OSError):
         return None
 
     return _extract_uuid_env_variable(environment_string)
