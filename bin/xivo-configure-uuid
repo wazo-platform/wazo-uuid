@@ -19,7 +19,7 @@ def _already_configured():
     try:
         if 'XIVO_UUID' not in subprocess.check_output(['systemctl', 'show-environment']):
             return False
-    except subprocess.CalledProcessError:
+    except (subprocess.CalledProcessError, OSError):
         return False
 
     if not os.path.isfile(XIVO_UUID_FILENAME):
@@ -36,16 +36,20 @@ def _get_uuid():
 def _set_systemd_environment(uuid):
     try:
         subprocess.call(['systemctl', 'set-environment', 'XIVO_UUID={}'.format(uuid)])
-    except subprocess.CalledProcessError:
+    except (subprocess.CalledProcessError, OSError):
         # systemd is not running yet, a reboot is required anyway
         pass
 
 
 def _set_system_conf(uuid):
-    with open(SYSTEM_CONF_FILENAME, 'r') as f:
-        original = list(f)
-
     env_line = 'DefaultEnvironment='
+
+    try:
+        with open(SYSTEM_CONF_FILENAME, 'r') as f:
+            original = list(f)
+    except IOError:
+        original = [env_line]
+
     with open(SYSTEM_CONF_FILENAME, 'w') as f:
         for line in original:
             if env_line not in line:
