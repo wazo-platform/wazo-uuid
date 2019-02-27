@@ -1,5 +1,4 @@
-# -*- coding: utf-8 -*-
-# Copyright 2017 The Wazo Authors  (see AUTHORS file)
+# Copyright 2017-2019 The Wazo Authors  (see AUTHORS file)
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 import logging
@@ -41,11 +40,11 @@ def _find_uuid_environ():
 
 def _find_uuid_systemctl():
     try:
-        environment_string = subprocess.check_output(['systemctl', 'show-environment'])
+        output = subprocess.check_output(['systemctl', 'show-environment'])
     except (subprocess.CalledProcessError, OSError):
         return None
 
-    return _extract_uuid_env_variable(environment_string)
+    return _extract_uuid_env_variable(output.decode('utf-8'))
 
 
 def _find_uuid_file():
