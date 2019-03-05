@@ -1,6 +1,5 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# Copyright 2016-2017 The Wazo Authors  (see AUTHORS file)
+#!/usr/bin/env python3
+# Copyright 2016-2019 The Wazo Authors  (see AUTHORS file)
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 import uuid
@@ -17,7 +16,7 @@ SYSTEM_CONF_FILENAME = '/etc/systemd/system.conf'
 
 def _already_configured():
     try:
-        if 'XIVO_UUID' not in subprocess.check_output(['systemctl', 'show-environment']):
+        if b'XIVO_UUID' not in subprocess.check_output(['systemctl', 'show-environment']):
             return False
     except (subprocess.CalledProcessError, OSError):
         return False
