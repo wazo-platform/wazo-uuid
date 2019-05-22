@@ -1,7 +1,7 @@
-﻿This package was debianized by Wazo <dev.wazo@gmail.com> on
+﻿This package was debianized by Wazo <dev@wazo.community> on
 Tue, 31 Jan 2017 10:49:05 -0500
 
-Copyright: 2017 The Wazo Authors
+Copyright: 2017-2019 The Wazo Authors
 
 	This program is free software: you can redistribute it and/or modify
 	it under the terms of the GNU General Public License as published by
@@ -16,7 +16,7 @@ Copyright: 2017 The Wazo Authors
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-The Debian packaging is (C) 2017, The Wazo Authors and is licensed under
+The Debian packaging is (C) 2017-2019, The Wazo Authors and is licensed under
  the GPL.
 
 On Debian systems, the complete text of the GNU General

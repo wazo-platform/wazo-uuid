@@ -6,7 +6,6 @@ import uuid
 import os.path
 import subprocess
 
-XIVO_DEFAULT_FILENAME = '/etc/default/xivo'
 XIVO_UUID_FILENAME = '/etc/profile.d/xivo_uuid.sh'
 XIVO_UUID_FILE = '''\
 export XIVO_UUID={uuid}
@@ -66,19 +65,12 @@ def _set_etc_profile(uuid):
         f.write(content)
 
 
-def _add_sysv_compat(uuid):
-    content = XIVO_UUID_FILE.format(uuid=uuid)
-    with open(XIVO_DEFAULT_FILENAME, 'a') as f:
-        f.write(content)
-
-
 def main():
     if not _already_configured():
         uuid = _get_uuid()
         _set_etc_profile(uuid)
         _set_system_conf(uuid)
         _set_systemd_environment(uuid)
-        _add_sysv_compat(uuid)
 
 
 if __name__ == '__main__':
