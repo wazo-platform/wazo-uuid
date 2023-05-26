@@ -1,4 +1,4 @@
-# Copyright 2017-2019 The Wazo Authors  (see AUTHORS file)
+# Copyright 2017-2023 The Wazo Authors  (see the AUTHORS file)
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 import logging
@@ -49,9 +49,9 @@ def _find_uuid_systemctl():
 
 def _find_uuid_file():
     try:
-        with open(XIVO_UUID_FILENAME, 'r') as f:
+        with open(XIVO_UUID_FILENAME) as f:
             environment_string = f.read()
-    except IOError:
+    except OSError:
         return None
 
     return _extract_uuid_env_variable(environment_string)
